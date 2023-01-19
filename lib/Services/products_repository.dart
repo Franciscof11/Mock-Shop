@@ -2,20 +2,17 @@
 
 import 'package:dio/dio.dart';
 
-import 'api_index.dart';
-
 class ProductsRepository {
   getAllProducts() async {
     final client = Dio(
-      BaseOptions(baseUrl: API.base),
+      BaseOptions(baseUrl: 'https://dummyjson.com'),
     );
 
-    final response = await client.get(API.allProcuts);
-    Map<String, dynamic> posts = response.data;
-    print(posts);
+    final response = await client.get('/products');
+    return response.data['products'];
   }
 
-  getSingleProduct(String id) async {
+/*   getSingleProduct(String id) async {
     final client = Dio(
       BaseOptions(baseUrl: API.base),
     );
@@ -23,5 +20,5 @@ class ProductsRepository {
     final response = await client.get('${API.allProcuts}/$id');
     Map<String, dynamic> posts = response.data;
     print(posts);
-  }
+  } */
 }
