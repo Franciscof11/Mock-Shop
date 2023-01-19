@@ -23,16 +23,21 @@ class HomeView extends StatelessWidget {
     );
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(252, 252, 255, 1),
+      backgroundColor: Colors.amber,
+      /* Color.fromRGBO(249, 249, 252, 1), */
       body: SafeArea(
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             SizedBox(height: 20),
             HomeAppBar(),
             SizedBox(height: 20),
-            Text(
-              'Find your Product',
-              style: textStyle,
+            Padding(
+              padding: const EdgeInsets.only(left: 20),
+              child: Text(
+                'Find your Product',
+                style: textStyle,
+              ),
             ),
             CategoriesSelector(),
             Expanded(
@@ -42,7 +47,7 @@ class HomeView extends StatelessWidget {
                     return Center(child: CircularProgressIndicator());
                   }
                   if (productsController.products.isEmpty) {
-                    return Center(child: Text("No products found"));
+                    return Center(child: Text("No products found!"));
                   }
                   return ProductsGridView();
                 },
