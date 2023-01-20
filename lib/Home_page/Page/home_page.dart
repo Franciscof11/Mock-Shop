@@ -1,5 +1,3 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mockshop/Home_page/Widgets/categories_selector.dart';
@@ -23,33 +21,33 @@ class HomeView extends StatelessWidget {
     );
 
     return Scaffold(
-      backgroundColor: Color.fromRGBO(249, 249, 252, 1),
+      backgroundColor: const Color.fromRGBO(249, 249, 252, 1),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            SizedBox(height: 20),
-            HomeAppBar(),
-            SizedBox(height: 20),
-            Padding(
-              padding: const EdgeInsets.only(left: 20),
+            const SizedBox(height: 20),
+            const HomeAppBar(),
+            const SizedBox(height: 20),
+            const Padding(
+              padding: EdgeInsets.only(left: 20),
               child: Text(
                 'Find your Product',
                 style: textStyle,
               ),
             ),
-            SizedBox(height: 4),
-            CategoriesSelector(),
+            const SizedBox(height: 4),
+            const CategoriesSelector(),
             Expanded(
               child: Obx(
                 () {
                   if (productsController.loading.value) {
-                    return Center(child: CircularProgressIndicator());
+                    return const Center(child: CircularProgressIndicator());
                   }
                   if (productsController.products.isEmpty) {
-                    return Center(child: Text("No products found!"));
+                    return const Center(child: Text("No products found!"));
                   }
-                  return ProductsGridView();
+                  return const ProductsGridView();
                 },
               ),
             ),

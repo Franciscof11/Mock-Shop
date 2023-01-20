@@ -1,37 +1,19 @@
-// ignore_for_file: prefer_const_constructors,
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mockshop/Home_page/Widgets/remove_glow_effet.dart';
 
 import '../../Routes/routes.dart';
 import '../../Services/Home_page/products_controller.dart';
+import '../../consts.dart';
 
 class _ProductsGridViewState extends State<ProductsGridView> {
   final ProductsController productsController = Get.put(ProductsController());
-  TextStyle productNameStyle = TextStyle(
-    fontFamily: 'Raleway-Bold',
-    fontWeight: FontWeight.w600,
-    fontSize: 19,
-    color: Color.fromRGBO(27, 21, 61, 1),
-  );
-  TextStyle productCategoryStyle = TextStyle(
-    fontFamily: 'Raleway-Bold',
-    fontWeight: FontWeight.w500,
-    fontSize: 15,
-    color: Color.fromRGBO(144, 149, 166, 1),
-  );
-  TextStyle productPriceStyle = TextStyle(
-    fontFamily: 'Raleway-Bold',
-    fontWeight: FontWeight.w500,
-    fontSize: 20,
-    color: Color.fromRGBO(146, 39, 143, 1),
-  );
+
   @override
   Widget build(BuildContext context) {
     return RemoveGlowEffect(
       child: GridView.builder(
-        padding: EdgeInsets.only(top: 10),
+        padding: const EdgeInsets.only(top: 10),
         gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: 2,
           childAspectRatio: 0.7,
@@ -42,16 +24,16 @@ class _ProductsGridViewState extends State<ProductsGridView> {
             onTap: () =>
                 Get.toNamed(RoutesClass.productDatailsPage, arguments: index),
             child: Padding(
-              padding: EdgeInsets.all(15),
+              padding: const EdgeInsets.all(15),
               child: Container(
                 height: 100,
                 width: 150,
-                decoration: BoxDecoration(
+                decoration: const BoxDecoration(
                     color: Colors.white,
                     borderRadius: BorderRadius.all(
                       Radius.circular(14),
                     )),
-                padding: EdgeInsets.all(10),
+                padding: const EdgeInsets.all(10),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -59,7 +41,8 @@ class _ProductsGridViewState extends State<ProductsGridView> {
                       height: 120,
                       width: 150,
                       decoration: BoxDecoration(
-                        borderRadius: BorderRadius.all(Radius.circular(14)),
+                        borderRadius:
+                            const BorderRadius.all(Radius.circular(14)),
                         image: DecorationImage(
                           image: NetworkImage(
                               productsController.products[index]["images"][0]),
@@ -67,21 +50,21 @@ class _ProductsGridViewState extends State<ProductsGridView> {
                         ),
                       ),
                     ),
-                    SizedBox(width: 8),
+                    const SizedBox(width: 8),
                     Expanded(
                       child: Padding(
                         padding: const EdgeInsets.all(2),
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            SizedBox(height: 16),
+                            const SizedBox(height: 16),
                             Text(
                               productsController.products[index]["title"],
                               style: productNameStyle,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                             ),
-                            SizedBox(height: 8),
+                            const SizedBox(height: 8),
                             Expanded(
                               child: Text(
                                 productsController.products[index]["category"],
@@ -90,12 +73,12 @@ class _ProductsGridViewState extends State<ProductsGridView> {
                                 overflow: TextOverflow.ellipsis,
                               ),
                             ),
-                            SizedBox(height: 10),
+                            const SizedBox(height: 10),
                             Text(
                               "\$${productsController.products[index]["price"]}",
                               style: productPriceStyle,
                             ),
-                            SizedBox(height: 2),
+                            const SizedBox(height: 2),
                           ],
                         ),
                       ),

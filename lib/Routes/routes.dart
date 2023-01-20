@@ -9,6 +9,6 @@ class RoutesClass {
 
   static List<GetPage> routes = [
     GetPage(name: '/', page: () => HomeView()),
-    GetPage(name: '/productDatailsPage', page: () => ProductDetailPage()),
+    GetPage(name: '/productDatailsPage', page: () => const ProductDetailPage()),
   ];
 }
