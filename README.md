@@ -17,7 +17,7 @@
    <h2>About 📖</h2>
    
    <p>
-    App that simulates an online sales application consuming the DummyJSON open source API (https://dummyjson.com/). The application allows us to explore the list of products that comes from the api, see the details of the products listed and simulates a shopping cart.
+    App that simulates an online sales application, consuming the DummyJSON open source API (https://dummyjson.com/). The application allows us to explore the list of products that comes from the api, see the details of the products listed and simulates a shopping cart.
    </p>
 
 ---
