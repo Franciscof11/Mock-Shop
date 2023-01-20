@@ -6,22 +6,23 @@ class HomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Container(
-        color: Colors.amber,
-        width: MediaQuery.of(context).size.width,
-        child: Row(
-          children: [
-            const SizedBox(width: 22),
-            SvgPicture.asset(
+    return Container(
+      width: MediaQuery.of(context).size.width,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Padding(
+            padding: const EdgeInsets.only(left: 10),
+            child: SvgPicture.asset(
               'assets/icons/app_bar_menu_icon.svg',
             ),
-            const SizedBox(width: 50),
-            Container(
-              width: 270,
-              constraints: const BoxConstraints(
-                maxHeight: 50,
-              ),
+          ),
+          const SizedBox(width: 50),
+          Container(
+            width: 270,
+            height: 50,
+            child: Padding(
+              padding: const EdgeInsets.only(right: 15),
               child: TextFormField(
                 decoration: InputDecoration(
                   focusedBorder: OutlineInputBorder(
@@ -49,9 +50,9 @@ class HomeAppBar extends StatelessWidget {
                   ),
                 ),
               ),
-            )
-          ],
-        ),
+            ),
+          )
+        ],
       ),
     );
   }
