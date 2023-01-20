@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.arandutech.mockshop">
    <application
-        android:label="mockshop"
+        android:label="Mock Shop"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

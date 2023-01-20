@@ -16,10 +16,17 @@ dependencies:
   dio: ^4.0.6
   flutter_svg: ^1.1.6
   container_tab_indicator: ^0.3.0
+  flutter_launcher_icons: ^0.11.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+flutter_icons:
+  android: "launcher_icon"
+  remove_alpha_ios: true
+  ios: true
+  image_path: "assets/Icons/icon_apk.png"
 
   flutter_lints: ^2.0.0
 
