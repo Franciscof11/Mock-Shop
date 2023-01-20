@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:get/get.dart';
 
 class TopNovBar extends StatelessWidget {
   const TopNovBar({super.key});
@@ -12,7 +13,7 @@ class TopNovBar extends StatelessWidget {
         children: [
           const SizedBox(width: 30),
           GestureDetector(
-            onTap: () => Navigator.pop(context),
+            onTap: () => Get.back(),
             child: SvgPicture.asset(
               'assets/icons/arrow_back_icon.svg',
               width: 24,

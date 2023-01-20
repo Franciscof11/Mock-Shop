@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:mockshop/Home_page/Widgets/categories_selector.dart';
 
-import '../../Services/Products_controller.dart';
+import '../../Services/Home_page/products_controller.dart';
 import '../Widgets/app_bar.dart';
 import '../Widgets/products_grid_view.dart';
 
@@ -23,8 +23,7 @@ class HomeView extends StatelessWidget {
     );
 
     return Scaffold(
-      backgroundColor: Colors.white,
-      /* Color.fromRGBO(249, 249, 252, 1), */
+      backgroundColor: Color.fromRGBO(249, 249, 252, 1),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

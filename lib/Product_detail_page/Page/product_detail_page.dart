@@ -4,48 +4,61 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 
-import '../../Services/Products_controller.dart';
+import '../../Services/Product_detail_page/products_details_controller.dart';
 import '../Widgets/top_nav_bar.dart';
 
-class ProductDetailPage extends StatelessWidget {
-  final ProductsController productsController = Get.put(ProductsController());
+class ProductDetailPage extends StatefulWidget {
+  ProductDetailPage({super.key});
+
+  @override
+  State<ProductDetailPage> createState() => _ProductDetailPageState();
+}
+
+class _ProductDetailPageState extends State<ProductDetailPage> {
+  final ProductsDetailsController productsDetailsController =
+      Get.put(ProductsDetailsController());
+
   final TextStyle productNameStyle = TextStyle(
     fontFamily: 'Raleway-Bold',
     fontWeight: FontWeight.w700,
     fontSize: 22,
     color: Colors.black,
   );
+
   final TextStyle productCategoryStyle = TextStyle(
     fontFamily: 'Raleway-Bold',
     fontWeight: FontWeight.w500,
     fontSize: 15,
     color: Color.fromRGBO(144, 149, 166, 1),
   );
+
   final TextStyle productPriceStyle = TextStyle(
     fontFamily: 'Raleway-Bold',
     fontWeight: FontWeight.w500,
     fontSize: 25,
     color: Color.fromRGBO(146, 39, 143, 1),
   );
+
   final TextStyle productBrandStyle = TextStyle(
     fontFamily: 'Raleway-Bold',
     fontWeight: FontWeight.w600,
     fontSize: 18,
     color: Colors.black,
   );
+
   final TextStyle productDetailsStyle = TextStyle(
     fontFamily: 'Raleway-Bold',
     fontWeight: FontWeight.w500,
     fontSize: 18,
     color: Color.fromRGBO(146, 39, 143, 1),
   );
+
   final TextStyle buttonsStyle = TextStyle(
     fontFamily: 'Raleway-Bold',
     fontWeight: FontWeight.w700,
     fontSize: 20,
     color: Colors.white,
   );
-  ProductDetailPage({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -57,7 +70,7 @@ class ProductDetailPage extends StatelessWidget {
     );
 
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Color.fromRGBO(249, 249, 252, 1),
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -68,9 +81,10 @@ class ProductDetailPage extends StatelessWidget {
             Expanded(
               child: Obx(
                 () {
-                  if (productsController.loading.value) {
+                  if (productsDetailsController.loading.value) {
                     return Center(child: CircularProgressIndicator());
                   }
+                  var index = Get.arguments;
                   return Builder(
                     builder: (context) {
                       return Column(
@@ -83,8 +97,8 @@ class ProductDetailPage extends StatelessWidget {
                                 borderRadius:
                                     const BorderRadius.all(Radius.circular(14)),
                                 image: DecorationImage(
-                                  image: NetworkImage(productsController
-                                      .products[5]["images"][0]),
+                                  image: NetworkImage(productsDetailsController
+                                      .products[index]["images"][0]),
                                   fit: BoxFit.fill,
                                 ),
                               ),
@@ -94,26 +108,32 @@ class ProductDetailPage extends StatelessWidget {
                           Row(
                             children: [
                               SizedBox(width: 25),
-                              Column(
-                                children: [
-                                  Text(
-                                    productsController.products[0]["title"],
-                                    style: productNameStyle,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                  ),
-                                  SizedBox(height: 8),
-                                  Text(
-                                    productsController.products[0]["category"],
-                                    style: productCategoryStyle,
-                                    maxLines: 1,
-                                    overflow: TextOverflow.ellipsis,
-                                  )
-                                ],
+                              SizedBox(
+                                width: 220,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      productsDetailsController.products[index]
+                                          ["title"],
+                                      style: productNameStyle,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    ),
+                                    SizedBox(height: 8),
+                                    Text(
+                                      productsDetailsController.products[index]
+                                          ["category"],
+                                      style: productCategoryStyle,
+                                      maxLines: 1,
+                                      overflow: TextOverflow.ellipsis,
+                                    )
+                                  ],
+                                ),
                               ),
-                              SizedBox(width: 165),
+                              SizedBox(width: 40),
                               Text(
-                                "\$${productsController.products[0]["price"]}",
+                                "\$${productsDetailsController.products[index]["price"]}",
                                 style: productPriceStyle,
                               ),
                             ],
@@ -121,11 +141,17 @@ class ProductDetailPage extends StatelessWidget {
                           SizedBox(height: 40),
                           Padding(
                             padding: const EdgeInsets.only(left: 25),
-                            child: Text(
-                              productsController.products[0]["brand"],
-                              style: productBrandStyle,
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.start,
+                              children: [
+                                Text(
+                                  productsDetailsController.products[index]
+                                      ["brand"],
+                                  style: productBrandStyle,
+                                  maxLines: 1,
+                                  overflow: TextOverflow.ellipsis,
+                                ),
+                              ],
                             ),
                           ),
                           SizedBox(height: 45),
@@ -163,7 +189,8 @@ class ProductDetailPage extends StatelessWidget {
                           Padding(
                             padding: const EdgeInsets.symmetric(horizontal: 25),
                             child: Text(
-                              productsController.products[2]["description"],
+                              productsDetailsController.products[index]
+                                  ["description"],
                               style: productCategoryStyle,
                               maxLines: 3,
                               overflow: TextOverflow.ellipsis,
@@ -172,7 +199,7 @@ class ProductDetailPage extends StatelessWidget {
                           SizedBox(height: 42),
                           Center(
                             child: GestureDetector(
-                              onTap: () => Navigator.pop(context),
+                              onTap: () => Get.back(),
                               child: Container(
                                 width: 335,
                                 height: 71,

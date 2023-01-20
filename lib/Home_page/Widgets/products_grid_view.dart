@@ -5,7 +5,7 @@ import 'package:get/get.dart';
 import 'package:mockshop/Home_page/Widgets/remove_glow_effet.dart';
 
 import '../../Routes/routes.dart';
-import '../../Services/Products_controller.dart';
+import '../../Services/Home_page/products_controller.dart';
 
 class _ProductsGridViewState extends State<ProductsGridView> {
   final ProductsController productsController = Get.put(ProductsController());
@@ -39,7 +39,8 @@ class _ProductsGridViewState extends State<ProductsGridView> {
         itemCount: productsController.products.length,
         itemBuilder: (BuildContext context, int index) {
           return GestureDetector(
-            onTap: () => Get.toNamed(RoutesClass.productDatailsPage),
+            onTap: () =>
+                Get.toNamed(RoutesClass.productDatailsPage, arguments: index),
             child: Padding(
               padding: EdgeInsets.all(15),
               child: Container(
