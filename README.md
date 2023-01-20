@@ -36,6 +36,7 @@
    </h2>
 The development of this application made me study more deeply about api requests in flutter.animations and state management with GetX package.
 It also forced me to study more about client http , using the DIO package. I learned how to handle connection errors when querying the api.
+ 
 ---
 
  <h2>
