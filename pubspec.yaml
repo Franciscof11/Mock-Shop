@@ -26,7 +26,8 @@ flutter_icons:
   android: "launcher_icon"
   remove_alpha_ios: true
   ios: true
-  image_path: "assets/Icons/icon_apk.png"
+  image_path: "assets/images/icon_apk.png"
+  adaptive_icon_background: "#FFFFFF"
 
   flutter_lints: ^2.0.0
 
