@@ -8,7 +8,7 @@ import '../../Services/Product_detail_page/products_details_controller.dart';
 import '../Widgets/top_nav_bar.dart';
 
 class ProductDetailPage extends StatefulWidget {
-  ProductDetailPage({super.key});
+  const ProductDetailPage({super.key});
 
   @override
   State<ProductDetailPage> createState() => _ProductDetailPageState();
