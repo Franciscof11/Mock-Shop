@@ -23,7 +23,7 @@ class HomeView extends StatelessWidget {
     );
 
     return Scaffold(
-      backgroundColor: Colors.amber,
+      backgroundColor: Colors.white,
       /* Color.fromRGBO(249, 249, 252, 1), */
       body: SafeArea(
         child: Column(
@@ -39,6 +39,7 @@ class HomeView extends StatelessWidget {
                 style: textStyle,
               ),
             ),
+            SizedBox(height: 4),
             CategoriesSelector(),
             Expanded(
               child: Obx(
@@ -49,7 +50,10 @@ class HomeView extends StatelessWidget {
                   if (productsController.products.isEmpty) {
                     return Center(child: Text("No products found!"));
                   }
-                  return ProductsGridView();
+                  if (productsController.products.isEmpty) {
+                    return Center(child: Text("No products found!"));
+                  }
+                  return ProductsGridView(brand: 'apple');
                 },
               ),
             ),

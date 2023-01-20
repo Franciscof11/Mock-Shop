@@ -21,4 +21,13 @@ class ProductsRepository {
     Map<String, dynamic> posts = response.data;
     print(posts);
   } */
+
+  getProductsBrand() async {
+    final client = Dio(
+      BaseOptions(baseUrl: 'https://dummyjson.com'),
+    );
+
+    final response = await client.get('/products?&select=brand');
+    return response.data['products'];
+  }
 }

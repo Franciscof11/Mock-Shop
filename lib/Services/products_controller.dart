@@ -8,7 +8,6 @@ class ProductsController extends GetxController {
   ProductsRepository productsRepository = ProductsRepository();
   RxBool loading = false.obs;
   List products = [].obs;
-  var showGrid = false.obs;
 
   ProductsController() {
     loadProductsFromRepo();
@@ -18,9 +17,5 @@ class ProductsController extends GetxController {
     loading(true);
     products = await productsRepository.getAllProducts();
     loading(false);
-  }
-
-  toggleGrid() {
-    showGrid(!showGrid.value);
   }
 }

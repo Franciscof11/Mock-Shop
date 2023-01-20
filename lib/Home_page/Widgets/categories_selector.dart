@@ -1,42 +1,69 @@
 // ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_print, avoid_unnecessary_containers
 
+import 'package:container_tab_indicator/container_tab_indicator.dart';
 import 'package:flutter/material.dart';
 
-final List categories = [
-  'Apple',
-  'Samsumg',
-  'Huawei',
-  'OPPO',
-];
-
 class _CategoriesSelectorState extends State<CategoriesSelector> {
+  TextStyle categoriesStyle = TextStyle(
+    fontFamily: 'Raleway-Bold',
+    fontWeight: FontWeight.w500,
+    fontSize: 18,
+  );
+
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 35.0,
-      margin: EdgeInsets.only(top: 16),
-      child: ListView.builder(
-        itemCount: categories.length,
-        scrollDirection: Axis.horizontal,
-        itemBuilder: (context, index) => Container(
-          margin: EdgeInsets.only(right: 8),
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4.0),
-            color: index == 0 ? Colors.black87 : Colors.transparent,
-          ),
-          padding: EdgeInsets.symmetric(
-            horizontal: 16.0,
-            vertical: 8.0,
-          ),
-          child: Text(
-            categories[index],
-            style: TextStyle(
-              color: index == 0 ? Colors.white : Colors.black,
-            ),
-          ),
-        ),
-      ),
+    return Padding(
+      padding: const EdgeInsets.only(right: 5),
+      child: SizedBox(
+          width: 500,
+          height: 60,
+          child: DefaultTabController(
+              length: 4,
+              animationDuration: Duration(milliseconds: 200),
+              child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(
+                      height: 56,
+                      child: TabBar(
+                        onTap: (value) => render(value),
+                        labelPadding: EdgeInsets.only(left: 0),
+                        unselectedLabelColor: Colors.grey,
+                        labelColor: Color.fromRGBO(146, 39, 143, 1),
+                        automaticIndicatorColorAdjustment: true,
+                        tabs: [
+                          Text('Apple', style: categoriesStyle),
+                          Text('Samsumg', style: categoriesStyle),
+                          Text('Huawei', style: categoriesStyle),
+                          Text('OPPO', style: categoriesStyle),
+                        ],
+                        indicator: ContainerTabIndicator(
+                            height: 3,
+                            padding: EdgeInsets.only(top: 20),
+                            width: 40,
+                            color: Color.fromRGBO(146, 39, 143, 1)),
+                      ),
+                    ),
+                  ]))),
     );
+  }
+
+  render(value) {
+    switch (value) {
+      case 0:
+        print('Apple');
+        return 'Apple';
+      case 1:
+        print('Samsung');
+        return 'Samsung';
+      case 2:
+        print('Huawei');
+        return 'Huawei';
+      case 3:
+        print('OPPO');
+        return 'OPPO';
+    }
   }
 }
 
