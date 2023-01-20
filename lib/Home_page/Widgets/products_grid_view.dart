@@ -111,8 +111,7 @@ class _ProductsGridViewState extends State<ProductsGridView> {
 }
 
 class ProductsGridView extends StatefulWidget {
-  final String brand;
-  const ProductsGridView({super.key, required this.brand});
+  const ProductsGridView({super.key});
 
   @override
   State<ProductsGridView> createState() => _ProductsGridViewState();

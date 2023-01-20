@@ -50,10 +50,7 @@ class HomeView extends StatelessWidget {
                   if (productsController.products.isEmpty) {
                     return Center(child: Text("No products found!"));
                   }
-                  if (productsController.products.isEmpty) {
-                    return Center(child: Text("No products found!"));
-                  }
-                  return ProductsGridView(brand: 'apple');
+                  return ProductsGridView();
                 },
               ),
             ),

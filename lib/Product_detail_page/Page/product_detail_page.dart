@@ -58,7 +58,6 @@ class ProductDetailPage extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: Colors.white,
-      /* Color.fromRGBO(249, 249, 252, 1), */
       body: SafeArea(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -66,117 +65,137 @@ class ProductDetailPage extends StatelessWidget {
             SizedBox(height: 20),
             TopNovBar(),
             SizedBox(height: 38),
-            Center(
-              child: Container(
-                height: 225,
-                width: 311,
-                decoration: BoxDecoration(
-                  borderRadius: const BorderRadius.all(Radius.circular(14)),
-                  image: DecorationImage(
-                    image: NetworkImage(
-                        productsController.products[5]["images"][0]),
-                    fit: BoxFit.fill,
-                  ),
-                ),
-              ),
-            ),
-            SizedBox(height: 55),
-            Row(
-              children: [
-                SizedBox(width: 25),
-                Column(
-                  children: [
-                    Text(
-                      productsController.products[0]["title"],
-                      style: productNameStyle,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    ),
-                    SizedBox(height: 8),
-                    Text(
-                      productsController.products[0]["category"],
-                      style: productCategoryStyle,
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                    )
-                  ],
-                ),
-                SizedBox(width: 165),
-                Text(
-                  "\$${productsController.products[0]["price"]}",
-                  style: productPriceStyle,
-                ),
-              ],
-            ),
-            SizedBox(height: 40),
-            Padding(
-              padding: const EdgeInsets.only(left: 25),
-              child: Text(
-                productsController.products[0]["brand"],
-                style: productBrandStyle,
-                maxLines: 1,
-                overflow: TextOverflow.ellipsis,
-              ),
-            ),
-            SizedBox(height: 45),
-            Row(
-              children: [
-                SizedBox(width: 25),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Column(
-                      children: [
-                        Text(
-                          'Details',
-                          style: productDetailsStyle,
-                          maxLines: 1,
-                          overflow: TextOverflow.ellipsis,
-                        ),
-                        SizedBox(height: 3),
-                        Padding(
-                          padding: const EdgeInsets.only(right: 25),
-                          child: SvgPicture.asset(
-                            'assets/icons/line_pink_icon.svg',
-                            height: 3,
+            Expanded(
+              child: Obx(
+                () {
+                  if (productsController.loading.value) {
+                    return Center(child: CircularProgressIndicator());
+                  }
+                  return Builder(
+                    builder: (context) {
+                      return Column(
+                        children: [
+                          Center(
+                            child: Container(
+                              height: 225,
+                              width: 311,
+                              decoration: BoxDecoration(
+                                borderRadius:
+                                    const BorderRadius.all(Radius.circular(14)),
+                                image: DecorationImage(
+                                  image: NetworkImage(productsController
+                                      .products[5]["images"][0]),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
                           ),
-                        )
-                      ],
-                    ),
-                    SizedBox(height: 8),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(height: 10),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 25),
-              child: Text(
-                productsController.products[2]["description"],
-                style: productCategoryStyle,
-                maxLines: 3,
-                overflow: TextOverflow.ellipsis,
+                          SizedBox(height: 55),
+                          Row(
+                            children: [
+                              SizedBox(width: 25),
+                              Column(
+                                children: [
+                                  Text(
+                                    productsController.products[0]["title"],
+                                    style: productNameStyle,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  ),
+                                  SizedBox(height: 8),
+                                  Text(
+                                    productsController.products[0]["category"],
+                                    style: productCategoryStyle,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                  )
+                                ],
+                              ),
+                              SizedBox(width: 165),
+                              Text(
+                                "\$${productsController.products[0]["price"]}",
+                                style: productPriceStyle,
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 40),
+                          Padding(
+                            padding: const EdgeInsets.only(left: 25),
+                            child: Text(
+                              productsController.products[0]["brand"],
+                              style: productBrandStyle,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          SizedBox(height: 45),
+                          Row(
+                            children: [
+                              SizedBox(width: 25),
+                              Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                children: [
+                                  Column(
+                                    children: [
+                                      Text(
+                                        'Details',
+                                        style: productDetailsStyle,
+                                        maxLines: 1,
+                                        overflow: TextOverflow.ellipsis,
+                                      ),
+                                      SizedBox(height: 3),
+                                      Padding(
+                                        padding:
+                                            const EdgeInsets.only(right: 25),
+                                        child: SvgPicture.asset(
+                                          'assets/icons/line_pink_icon.svg',
+                                          height: 3,
+                                        ),
+                                      )
+                                    ],
+                                  ),
+                                  SizedBox(height: 8),
+                                ],
+                              ),
+                            ],
+                          ),
+                          SizedBox(height: 10),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 25),
+                            child: Text(
+                              productsController.products[2]["description"],
+                              style: productCategoryStyle,
+                              maxLines: 3,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          SizedBox(height: 42),
+                          Center(
+                            child: GestureDetector(
+                              onTap: () => Navigator.pop(context),
+                              child: Container(
+                                width: 335,
+                                height: 71,
+                                decoration: BoxDecoration(
+                                    color: Color.fromRGBO(161, 68, 159, 1),
+                                    borderRadius:
+                                        BorderRadius.all(Radius.circular(10))),
+                                child: Center(
+                                  child: Text(
+                                    'Add to cart',
+                                    style: buttonsStyle,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          )
+                        ],
+                      );
+                    },
+                  );
+                },
               ),
             ),
-            SizedBox(height: 42),
-            Center(
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Container(
-                  width: 335,
-                  height: 71,
-                  decoration: BoxDecoration(
-                      color: Color.fromRGBO(161, 68, 159, 1),
-                      borderRadius: BorderRadius.all(Radius.circular(10))),
-                  child: Center(
-                    child: Text(
-                      'Add to cart',
-                      style: buttonsStyle,
-                    ),
-                  ),
-                ),
-              ),
-            )
           ],
         ),
       ),
