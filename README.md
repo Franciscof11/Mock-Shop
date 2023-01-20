@@ -25,7 +25,8 @@
    <h2>Preview 📱</h2><br>
 
    <p a>
-   <img src="demos/" width="400" height="800" alt="App Preview"> 
+   <img src="preview/demo1.gif" width="400" height="800" alt="App Preview"> 
+   <img src="preview/demo2.gif" width="400" height="800" alt="App Preview"> 
    </p>
 
 ---
