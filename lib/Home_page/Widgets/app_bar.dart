@@ -6,12 +6,11 @@ class HomeAppBar extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
+    return Center(
       child: Container(
+        color: Colors.amber,
         width: MediaQuery.of(context).size.width,
         child: Row(
-          crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             const SizedBox(width: 22),
             SvgPicture.asset(
