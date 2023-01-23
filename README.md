@@ -46,7 +46,7 @@ It also forced me to study more about client http , using the DIO package. I lea
   * Flutter
   * Dart
   * GetX (For State Management) 
-  * Dio (For API consunming) 
+  * Dio (For API consuming) 
   * Lottie (For Animations)
   * Animated Splash Screen
   * Flutter Launcher Icons
