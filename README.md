@@ -25,7 +25,8 @@
    <h2>Preview 📱</h2><br>
 
    <p a>
-   <img src="demos/" width="400" height="800" alt="App Preview"> 
+   <img src="preview/demo1.gif" width="400" height="800" alt="App Preview"> 
+   <img src="preview/demo2.gif" width="400" height="800" alt="App Preview"> 
    </p>
 
 ---
@@ -45,7 +46,7 @@ It also forced me to study more about client http , using the DIO package. I lea
   * Flutter
   * Dart
   * GetX (For State Management) 
-  * Dio (For API consunming) 
+  * Dio (For API consuming) 
   * Lottie (For Animations)
   * Animated Splash Screen
   * Flutter Launcher Icons
